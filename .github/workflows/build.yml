@@ -3,8 +3,22 @@ name: Construction de project
 on:
   push:
     branches:   ["main", "develop"]
+  workflow_dispatch:
+
 
 jobs:
+  create-folder:
+    name: create-folder
+    runs-on: ubuntu-latest
+    steps:
+      - name: create folder on remote VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
   build:
 
     runs-on: ubuntu-latest
