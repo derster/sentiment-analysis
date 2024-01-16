@@ -46,12 +46,13 @@ jobs:
         port: ${{ secrets.PORT }}
         source: "target/sa.jar"
         target: /opt/applications/sa
-  run-script:
-    name: create-folder
+        strip_components: 1
+  run-jar:
+    name: run jar
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: create folder on remote VM
+      - name: Run jar on server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
@@ -60,4 +61,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ln -sf /opt/applications/sa/sa.jar /etc/init.d/sa
-            service start sa
+            /etc/init.d/sa start
