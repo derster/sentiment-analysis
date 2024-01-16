@@ -39,7 +39,6 @@ jobs:
       run: mv target/*.jar target/sa.jar
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.7
-      needs: create-folder
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
