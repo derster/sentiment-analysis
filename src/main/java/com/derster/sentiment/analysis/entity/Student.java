@@ -34,7 +34,7 @@ public class Student {
     @JsonBackReference
     private School school;
 
-    public Student(String firstName, String lastName, String email, int age, StudentProfile studentProfile) {
+    public Student(String firstName, String lastName, String email, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
