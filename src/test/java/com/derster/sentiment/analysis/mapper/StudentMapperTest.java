@@ -57,7 +57,7 @@ class StudentMapperTest {
     @Test
     public void shouldMapStudentStudentResponseDto(){
 
-        // Give
+        // Given
         Student student = new Student(
                 "Jane",
                 "Smith",
